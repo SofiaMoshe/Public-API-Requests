@@ -50,7 +50,7 @@ function displayModal(employee) {
                     <img class="modal-img" src="${employee.picture.thumbnail}" alt="employee picture" alt="profile picture">
                     <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last}</h3>
                     <p class="modal-text">${employee.email}</p>
-                    <p class="modal-text cap">${employee.city}</p>
+                    <p class="modal-text cap">${employee.location.city}</p>
                     <hr>
                     <p class="modal-text">${employee.cell}</p>
                     <p class="modal-text cap">${employee.location.city}, ${employee.location.state}</p>
