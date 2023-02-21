@@ -1,7 +1,6 @@
 /* Treehouse FSJS Techdegree
  * Project 5 - Public API Requests
 /**/
-
 const userAPI = 'https://randomuser.me/api/?inc=picture,name,email,cell,location,dob&nat=US&results=12';
 const gallery = document.getElementById('gallery');
 
@@ -9,11 +8,11 @@ const gallery = document.getElementById('gallery');
 /***** FETCH FUNCTION ****/
 
 fetch(userAPI)
- .then(response => response.json())
- .then( data => generateData(data.results) )
+    .then(response => response.json())
+    .then(data => generateData(data.results))
 
 
-function generateData (employees){
+function generateData(employees) {
     for (let i = 0; i < employees.length; i++) {
         let card = document.createElement('div');
         card.classList.add('card');
@@ -29,20 +28,20 @@ function generateData (employees){
                 <p class="card-text cap">${employees[i].location.city}, ${employees[i].location.state} </p>
             </div>
         `;
-     
+
         gallery.appendChild(card);
-    
-        card.addEventListener ('click', () => displayModal(employees[i]));
+
+        card.addEventListener('click', () => displayModal(employees[i]));
     }
- }
-   
+}
+
 //Phone Number Formatter
-function numberFormat(text){
+function numberFormat(text) {
     return text.replace(DATA.VALIDATORS.DOB_REGEX, '$2/$3/$1');
 }
 
-        function displayModal(employee){
-            const modalHTML = `
+function displayModal(employee) {
+    const modalHTML = `
             <div class="modal-container">
             <div class="modal">
                 <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
@@ -60,12 +59,11 @@ function numberFormat(text){
                 </div>
             </div>
             `;
-            gallery.insertAdjacentHTML('afterend', modalHTML)
-        }
-        
-        document.body.addEventListener('click', (e) => {
-            if(e.target.closest('#modal-close-btn')) {
-                document.querySelector('.modal-container').remove();
-            }
-        })
+    gallery.insertAdjacentHTML('afterend', modalHTML)
+}
 
+document.body.addEventListener('click', (e) => {
+    if (e.target.closest('#modal-close-btn')) {
+        document.querySelector('.modal-container').remove();
+    }
+})
