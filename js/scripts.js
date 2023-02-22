@@ -50,10 +50,18 @@ function displayModal(employee) {
                     <img class="modal-img" src="${employee.picture.thumbnail}" alt="employee picture" alt="profile picture">
                     <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last}</h3>
                     <p class="modal-text">${employee.email}</p>
-                    <p class="modal-text cap">${employee.location.city}</p>
+                    <p class="modal-text cap">
+                        ${employee.location.city} 
+                        </p>
                     <hr>
                     <p class="modal-text">${employee.cell}</p>
-                    <p class="modal-text cap">${employee.location.city}, ${employee.location.state}</p>
+                    <p class="modal-text cap">
+                        ${employee.location.street.number}
+                        ${employee.location.street.name}
+                        ${employee.location.city} 
+                        ${employee.location.country} 
+                        ${employee.location.postcode}
+                    </p>
                     <p class="modal-text">Birthday: ${employee.dob.date.replace(/(\d{4})-(\d{2})-(\d{2}).+/, '$2/$3/$1')}</p>
 
                 </div>
